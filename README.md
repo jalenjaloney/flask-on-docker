@@ -15,7 +15,7 @@ Below is a demonstration of:
 - Uploading an image
 - Viewing the uploaded image
 
-![Application Demo](docs/flask-on-docker-demo.gif)
+![Application Demo](flask-on-docker-demo.gif)
 
 ---
 
@@ -47,3 +47,4 @@ docker compose up --build
 ### 3. Access the application
 
 Open: `http://localhost:8080`
+
