@@ -1,4 +1,4 @@
-name: Development Build
+name: Production Build
 
 on:
   push:
@@ -19,12 +19,12 @@ jobs:
 
       - name: Create env file
         run: |
-          echo "FLASK_ENV=development" >> .env.dev
-          echo "SECRET_KEY=ci-secret" >> .env.dev
-          echo "DATABASE_URL=sqlite:///db.sqlite3" >> .env.dev
+          echo "FLASK_ENV=development" >> .env.prod
+          echo "SECRET_KEY=ci-secret" >> .env.prod
+          echo "DATABASE_URL=sqlite:///db.sqlite3" >> .env.prod
 
       - name: Build Containers
-        run: docker compose up --build -d
+        run: docker compose -f docker-compose.prod.yml up --build -d
 
       - name: Shut Down
         run: docker compose down
