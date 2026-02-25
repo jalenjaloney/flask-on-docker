@@ -1,6 +1,6 @@
 # Flask Image Upload Service
 
-![Build Status](https://github.com/jalenjaloney/flask-on-docker/actions/workflows/dev.yml/badge.svg)
+![Build Status](https://github.com/jalenjaloney/flask-on-docker/actions/workflows/main.yml/badge.svg)
 
 ## Overview
 
@@ -47,4 +47,5 @@ docker compose up --build
 ### 3. Access the application
 
 Open: `http://localhost:8080`
+
 
