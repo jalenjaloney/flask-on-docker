@@ -42,7 +42,8 @@ docker compose up --build
 
 ### 3. Access the application
 
-Open: `http://localhost:8080`
+Open: `http://localhost:1079`
+
 
 
 
