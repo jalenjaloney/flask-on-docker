@@ -1,4 +1,5 @@
 import os
+import random
 
 from flask import (
     Flask,
@@ -34,6 +35,7 @@ def home():
         files = []
     else:
         files = os.listdir(media_folder)
+        random.shuffle(files)
 
     return render_template("home.html", files=files)
 
@@ -48,10 +50,22 @@ def mediafiles(filename):
     return send_from_directory(app.config["MEDIA_FOLDER"], filename)
 
 
+ALLOWED_EXTENSIONS = {"gif"}
+
+
+def allowed_file(filename):
+    return (
+        "." in filename and filename.rsplit(".", 1)[1].lower() in ALLOWED_EXTENSIONS
+    )
+
+
 @app.route("/upload", methods=["GET", "POST"])
 def upload_file():
     if request.method == "POST":
         file = request.files["file"]
-        filename = secure_filename(file.filename)
-        file.save(os.path.join(app.config["MEDIA_FOLDER"], filename))
+
+        if file and allowed_file(file.filename):
+            filename = secure_filename(file.filename)
+            file.save(os.path.join(app.config["MEDIA_FOLDER"], filename))
+
     return render_template("upload.html")

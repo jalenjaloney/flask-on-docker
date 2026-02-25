@@ -1,28 +1,31 @@
 <!doctype html>
 <html>
 <head>
-    <title>Home</title>
+    <title>GIF Gallery</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
-<body>
-    <h1>Uploaded Media</h1>
 
+<body>
+
+<header>
+    <h2>GIF Gallery</h2>
     <nav>
         <a href="/">Home</a>
         <a href="/upload">Upload</a>
     </nav>
+</header>
 
-    <hr>
-
+<div class="gallery">
     {% if files %}
         {% for file in files %}
-            <div>
-                <p>{{ file }}</p>
-                <img src="/media/{{ file }}" width="300">
+            <div class="gallery-item">
+                <img src="/media/{{ file }}">
             </div>
         {% endfor %}
     {% else %}
         <p>No uploads yet.</p>
     {% endif %}
+</div>
 
 </body>
 </html>
