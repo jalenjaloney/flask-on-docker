@@ -31,7 +31,7 @@ Below is a demonstration of:
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/yourrepo.git
+git clone https://github.com/jalenjaloney/flask-on-docker.git
 cd yourrepo
 ```
 ### 2. Build and start services (Development)
@@ -43,6 +43,7 @@ docker compose up --build
 ### 3. Access the application
 
 Open: `http://localhost:1079`
+
 
 
 
