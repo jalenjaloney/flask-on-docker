@@ -17,6 +17,12 @@ jobs:
       - name: Set up Docker
         uses: docker/setup-buildx-action@v3
 
+      - name: Create env file
+        run: |
+          echo "FLASK_ENV=development" >> .env.dev
+          echo "SECRET_KEY=ci-secret" >> .env.dev
+          echo "DATABASE_URL=sqlite:///db.sqlite3" >> .env.dev
+
       - name: Build Containers
         run: docker compose up --build -d
 
